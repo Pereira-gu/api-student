@@ -6,7 +6,6 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.beans.Transient;
 import java.util.List;
 
 @Service
@@ -16,7 +15,7 @@ public class StudentService {
     private StudentRepository repository;
 
     // se ao criar o aluno, verifica se nao existe aluno ja registrado com o RGM
-    @Transient
+    @Transactional
     public Student createStudent(Student student) {
         if (repository.existsByRgm(student.getRgm())){
             throw new RuntimeException("Erro: Já existe um aluno cadastrado com este RGM");
