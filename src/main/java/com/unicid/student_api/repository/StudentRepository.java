@@ -2,7 +2,6 @@ package com.unicid.student_api.repository;
 
 import com.unicid.student_api.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 public interface StudentRepository extends JpaRepository<Student, Long> {
