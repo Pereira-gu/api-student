@@ -31,4 +31,15 @@ public class StudentController {
     public ResponseEntity<Student> getByRgm(@PathVariable String rgm) {
         return ResponseEntity.ok(service.getStudentByRGM(rgm));
     }
+
+    @PutMapping("/{id}") // Verbo HTTP para ATUALIZAR dados.
+    public ResponseEntity<Student> update(@PathVariable Long id, @RequestBody Student studentDetails) {
+        return ResponseEntity.ok(service.updateStudent(id, studentDetails));
+    }
+
+    @DeleteMapping("/{id}") // Verbo HTTP para DELETAR dados
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        service.deleteStudent(id);
+        return ResponseEntity.noContent().build(); // retorna Status 204
+    }
 }

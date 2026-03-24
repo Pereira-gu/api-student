@@ -10,4 +10,6 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     // Verifica se já existe um RGM cadastrado (útil para validações de performance)
     boolean existsByRgm(String rgm);
+
+    boolean existsByRgm(int id);
 }
